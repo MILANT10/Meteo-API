@@ -1,19 +1,83 @@
-html, body {
-    background: #2980B9;
-    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-    min-width: 400px;
-  }
-  
-  #ville {
-    text-transform: capitalize;
-  }
-  
-  #temperature {
-    font-size: 4em;
-  }
-  
-  #changer {
-    background: rgba(178, 223, 251, .3);
-    cursor: pointer;
-  }
+body {
+  background: #2980B9;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+  min-width: 400px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-card {
+  background-color: blue;
+  width: 350px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.second-card {
+  background-color: aqua;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#ville {
+  text-transform: capitalize;
+  font-size: 4em;
+}
+
+.temps{
+  font-size: 4em;
+}
+
+#temperature {
+  font-size: 4em;
+}
+
+#changer {
+  background: rgba(178, 223, 251, .3);
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+}
+
+.liste-jours {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.liste-jours > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 75px;
+  height: 150px;
+  border: 1px solid red;
+
+}
+
+.liste-jours > div > * span{
+  font-size: 18px;
+}
+

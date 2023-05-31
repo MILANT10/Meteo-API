@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Méteo API</title>
-</head>
-<body>
-    
-
+  </head>
+  <body>
     <div class="container">
-  
-        <div class="row justify-content-center">
-          
-          <div class="col-md-8">
-            <!-- Titre -->
-            <h1 class="text-center mt-5">Météo</h1>
-            
-            <!-- Ville / Temperature -->
-            <div class="text-center">
-              <span id="ville">paris</span>
-              
-              <div id="temperature">
-                <span id="temperature_label">
-                  xx.x
-                </span> °C
-              </div>
+      <!-- Titre -->
+      <h1>Météo</h1>
+
+      <!-- Ville / Temperature -->
+
+      <div class="card-container">
+        <div class="main-card">
+          <span id="ville">paris</span>
+
+          <div id="temperature">
+            <span id="temperature_label"> xx.x </span> °C
+          </div>
+
+          <div class="temps">
+            <span id="temps_label"> xx.x </span>
+          </div>
+        </div>
+        <div class="second-card">
+          <span>Prévisions</span>
+
+          <div class="liste-jours">
+            <div id="day_one">
+              <span id="jours_1"> XXXXX</span>
+              <span id="futur_temps_1">XXXXX</span>
+              <span id="futur_weather_1">XXXXX</span>
+            </div>
+            <div id="day_two">
+              <span id="jours_2"> XXXXX</span>
+              <span id="futur_temps_2">XXXXX</span>
+              <span id="futur_weather_2">XXXXX</span>
+
+            </div>
+            <div id="day_three">
+              <span id="jours_3"> XXXXX</span>
+              <span id="futur_temps_3">XXXXX</span>
+              <span id="futur_weather_3">XXXXX</span>
+
+            </div>
+            <div id="day_four">
+              <span id="jours_4"> XXXXX</span>
+              <span id="futur_temps_4">XXXXX</span>
+              <span id="futur_weather_4">XXXXX</span>
+
             </div>
           </div>
-          
         </div>
-        
-        <div class="row justify-content-center">  
-          <div class="col-md-8 text-center">
-            <!-- Changer de ville -->
-            <div id="changer" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block">
-              Changer de ville
-            </div>
-          </div>
-          
-        </div>
-        
       </div>
 
+      <!-- Changer de ville -->
+      <div id="changer">Changer de ville</div>
+    </div>
 
-
-      
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

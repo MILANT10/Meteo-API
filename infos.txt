@@ -1,0 +1,6 @@
+Infos utiles au dev de la météo API
+
+
+span id ville 
+div id temperature
+div id changer
