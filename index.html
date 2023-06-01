@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Méteo API</title>
   </head>
@@ -15,46 +20,48 @@
       <!-- Ville / Temperature -->
 
       <div class="card-container">
+        <!-- Carte Principale  -->
         <div class="main-card">
           <span id="ville">paris</span>
-
+          <!-- Température principale -->
           <div id="temperature">
             <span id="temperature_label"> xx.x </span> °C
           </div>
-
+          <!-- Météo principale -->
           <div class="temps">
-            <span id="temps_label"> xx.x </span>
+            <span id="temps_label"> XXXXX </span>
           </div>
         </div>
+        <!-- Carte Secondaire -->
         <div class="second-card">
           <span>Prévisions</span>
-
+          <!-- Liste Jour prévisionnelle -->
           <div class="liste-jours">
             <div id="day_one">
               <span id="jours_1"> XXXXX</span>
-              <span id="futur_temps_1">XXXXX</span>
+              <span id="futur_temps_1">xx.x</span> 
               <span id="futur_weather_1">XXXXX</span>
             </div>
             <div id="day_two">
               <span id="jours_2"> XXXXX</span>
-              <span id="futur_temps_2">XXXXX</span>
+              <span id="futur_temps_2">xx.x</span> 
               <span id="futur_weather_2">XXXXX</span>
             </div>
             <div id="day_three">
               <span id="jours_3"> XXXXX</span>
-              <span id="futur_temps_3">XXXXX</span>
+              <span id="futur_temps_3">xx.x</span> 
               <span id="futur_weather_3">XXXXX</span>
             </div>
             <div id="day_four">
               <span id="jours_4"> XXXXX</span>
-              <span id="futur_temps_4">XXXXX</span>
+              <span id="futur_temps_4">xx.x</span>
               <span id="futur_weather_4">XXXXX</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Changer de ville -->
+      <!-- Bouton Changer de ville -->
 
       <buttton class="change_button">Changer de ville</buttton>
     </div>
