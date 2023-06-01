@@ -1,7 +1,7 @@
 body {
-  background: #2980B9;
-  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
-  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+  background: #2980b9;
+  background: -webkit-linear-gradient(to right, #ffffff, #6dd5fa, #2980b9);
+  background: linear-gradient(to right, #ffffff, #6dd5fa, #2980b9);
   min-width: 400px;
 }
 
@@ -17,6 +17,8 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .main-card {
@@ -41,7 +43,7 @@ body {
   font-size: 4em;
 }
 
-.temps{
+.temps {
   font-size: 4em;
 }
 
@@ -50,8 +52,7 @@ body {
 }
 
 #changer {
-  background: rgba(178, 223, 251, .3);
-  cursor: pointer;
+  background: rgba(178, 223, 251, 0.3);
 }
 
 .card-container {
@@ -62,7 +63,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-
 }
 
 .liste-jours > div {
@@ -74,10 +74,19 @@ body {
   width: 75px;
   height: 150px;
   border: 1px solid red;
-
 }
 
-.liste-jours > div > * span{
+.liste-jours > div > * span {
   font-size: 18px;
 }
 
+.change_button {
+  cursor: pointer;
+  font-size: 2em;
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 0px 20px 1px rgba(116, 255, 235, 0.7);
+  box-shadow: 0px 0px 20px 1px rgba(116, 255, 235, 0.7);
+}
