@@ -51,6 +51,7 @@ function recevoirTemps(ville) {
       document.querySelector("#temps_label").textContent = tempsActuelle;
 
       afficherTemperatureProchainsJours(ville, tempsActuelle); // Passer le paramètre tempsActuelle
+      afficherMeteoProchainsJours(ville);
       afficherImageMeteo(tempsActuelle); // Passer le paramètre tempsActuelle
     })
     .catch(function (erreur) {
@@ -130,39 +131,40 @@ function afficherMeteoProchainsJours(ville) {
 }
 
 
+let images = {
+    Clear: "url('image/beau-temps.jpg')",
+    Rain: "url('image/pluie.jpg')",
+    Clouds: "url('image/cloud.jpg')",
+};
+
+// let tempsActuelle = "Clear";
 
 function afficherImageMeteo(tempsActuelle) {
     var body = document.querySelector("body");
 
     switch (tempsActuelle) {
         case "Clear":
-            body.style.backgroundImage = "url('image/beau-temps.jpg')";
+            body.style.backgroundImage = images.Clear;
             body.classList.add("img");
             break;
 
         case "Rain":
-            body.style.backgroundImage = "url('image/pluie.jpg')";
+            body.style.backgroundImage = images.Rain;
             body.classList.add("img");
             break;
 
         case "Clouds":
-            body.style.backgroundImage = "url('image/cloud.jpg')";
+            body.style.backgroundImage = images.Clouds;
             body.classList.add("img");
             break;
-    
+
         default:
             body.classList.remove("img");
             break;
     }
 }
 
+// afficherImageMeteo(tempsActuelle);
 
 
-
-// let images = {
-//   Clear : "url('image/beau-temps.jpg')",
-//   Rain : "('image\pluie.jpg')",
-
-
-// };
 
