@@ -1,11 +1,29 @@
-// Selection du bouton de changement de ville
+// Sélection du bouton de changement de ville
 let bouton = document.querySelector(".change_button");
+
+// Appel des fonctions de base pour affichage au lancement de la page
+afficherProchainsJours();
+obtenirLocalisation(recevoirTemps);
+
+// Événement du bouton avec appel des fonctions
+villeInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      const ville = villeInput.value;
+      recevoirTemps(ville);
+      afficherMeteoProchainsJours(ville);
+      afficherTemperatureProchainsJours(ville);
+      afficherImageMeteo(tempsActuelle); // Ajout de cette ligne pour afficher l'image
+      villeInput.value = ""; // Réinitialiser la valeur de l'input après l'événement
+    }
+  });
+
 //appel des fonctions de base pour affichage au lancement des pages
 afficherProchainsJours();
 obtenirLocalisation(recevoirTemps);
+
 //evenement du bouton avec appel des fonctions
 bouton.addEventListener("click", () => {
-  const ville = prompt("Veuillez entrer le nom d'une ville");
+  const ville = bouton.value;
   recevoirTemps(ville);
   afficherMeteoProchainsJours(ville);
   afficherTemperatureProchainsJours(ville);
@@ -40,6 +58,8 @@ function obtenirLocalisation(callback) {
     alert("La géolocalisation n'est pas prise en charge par votre navigateur.");
   }
 }
+
+
 //fonction de base pour recevoir la température et la météo de la ville géolocaliser ou demander par l'utilisateur
 function recevoirTemps(ville) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=a3a3a0a3b9787d551def0bf9e963422c&units=metric`;
@@ -63,6 +83,7 @@ function recevoirTemps(ville) {
     });
 }
 
+
 //fonction pour afficher les prochains jours. 
 function afficherProchainsJours() {
   const joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
@@ -77,6 +98,8 @@ function afficherProchainsJours() {
     spanJour.textContent = joursSemaine[prochainJour];
   }
 }
+
+
 //fonction pour afficher la température des prochains jours
 function afficherTemperatureProchainsJours(ville) {
   const joursSpans = document.querySelectorAll(".liste-jours div");
@@ -105,6 +128,8 @@ function afficherTemperatureProchainsJours(ville) {
       alert("Une erreur est survenue, merci de réessayer plus tard");
     });
 }
+
+
 //fonction pour afficher la météo des prochains jours
 function afficherMeteoProchainsJours(ville) {
   const joursSpans = document.querySelectorAll(".liste-jours div");
@@ -133,12 +158,14 @@ function afficherMeteoProchainsJours(ville) {
     });
 }
 
+
 //objet litéraux contenant les chemins des images 
 let images = {
     Clear: "url('image/beau-temps.jpg')",
     Rain: "url('image/pluie.jpg')",
     Clouds: "url('image/cloud.jpg')",
 };
+
 
 //fonction pour afficher les images selon la témpérature météo. 
 function afficherImageMeteo(tempsActuelle) {
