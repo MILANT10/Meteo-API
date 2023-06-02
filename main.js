@@ -1,33 +1,22 @@
 // Sélection du bouton de changement de ville
-let bouton = document.querySelector(".change_button");
-
+let villeInput = document.querySelector("#villeInput");
 // Appel des fonctions de base pour affichage au lancement de la page
 afficherProchainsJours();
 obtenirLocalisation(recevoirTemps);
 
 // Événement du bouton avec appel des fonctions
 villeInput.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-      const ville = villeInput.value;
-      recevoirTemps(ville);
-      afficherMeteoProchainsJours(ville);
-      afficherTemperatureProchainsJours(ville);
-      afficherImageMeteo(tempsActuelle); // Ajout de cette ligne pour afficher l'image
-      villeInput.value = ""; // Réinitialiser la valeur de l'input après l'événement
-    }
-  });
-
-//appel des fonctions de base pour affichage au lancement des pages
-afficherProchainsJours();
-obtenirLocalisation(recevoirTemps);
-
-//evenement du bouton avec appel des fonctions
-bouton.addEventListener("click", () => {
-  const ville = bouton.value;
-  recevoirTemps(ville);
-  afficherMeteoProchainsJours(ville);
-  afficherTemperatureProchainsJours(ville);
+  if (event.key === "Enter") {
+    const ville = villeInput.value;
+    recevoirTemps(ville);
+    afficherMeteoProchainsJours(ville);
+    afficherTemperatureProchainsJours(ville);
+    afficherImageMeteo(tempsActuelle);
+    villeInput.value = " "; // Réinitialiser la valeur de l'input après l'événement
+  }
 });
+
+
 //fonction pour obtenir la localisation de l'utilisateur
 function obtenirLocalisation(callback) {
     //condition de la disponibilite de la géolocalisation

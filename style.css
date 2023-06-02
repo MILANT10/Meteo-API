@@ -97,7 +97,7 @@ body {
   font-size: 18px;
 }
 
-.change_button {
+#villeInput {
   cursor: pointer;
   font-size: 2em;
   background-color: blue;
