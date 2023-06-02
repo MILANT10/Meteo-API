@@ -1,27 +1,30 @@
+// Selection du bouton de changement de ville
 let bouton = document.querySelector(".change_button");
+//appel des fonctions de base pour affichage au lancement des pages
 afficherProchainsJours();
 obtenirLocalisation(recevoirTemps);
-
+//evenement du bouton avec appel des fonctions
 bouton.addEventListener("click", () => {
   const ville = prompt("Veuillez entrer le nom d'une ville");
   recevoirTemps(ville);
   afficherMeteoProchainsJours(ville);
   afficherTemperatureProchainsJours(ville);
 });
-
+//fonction pour obtenir la localisation de l'utilisateur
 function obtenirLocalisation(callback) {
+    //condition de la disponibilite de la géolocalisation
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=a3a3a0a3b9787d551def0bf9e963422c&units=metric`;
-
+        //requete de l'API
         axios
           .get(url)
           .then(function (response) {
-            const ville = response.data.name; // Récupérer le nom de la ville à partir de la réponse de l'API
-            callback(ville); // Appeler la fonction de callback avec la ville par défaut
+            const ville = response.data.name; 
+            callback(ville);
           })
           .catch(function (erreur) {
             console.error(erreur);
@@ -37,10 +40,10 @@ function obtenirLocalisation(callback) {
     alert("La géolocalisation n'est pas prise en charge par votre navigateur.");
   }
 }
-
+//fonction de base pour recevoir la température et la météo de la ville géolocaliser ou demander par l'utilisateur
 function recevoirTemps(ville) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=a3a3a0a3b9787d551def0bf9e963422c&units=metric`;
-
+//requete API
   axios
     .get(url)
     .then(function (response) {
@@ -49,10 +52,10 @@ function recevoirTemps(ville) {
       document.querySelector("#temperature_label").textContent = meteoActuelle.toFixed(1);
       document.querySelector("#ville").textContent = ville;
       document.querySelector("#temps_label").textContent = tempsActuelle;
-
-      afficherTemperatureProchainsJours(ville, tempsActuelle); // Passer le paramètre tempsActuelle
+        //appel des autres fonctions pour afficher toute les données
+      afficherTemperatureProchainsJours(ville, tempsActuelle); 
       afficherMeteoProchainsJours(ville);
-      afficherImageMeteo(tempsActuelle); // Passer le paramètre tempsActuelle
+      afficherImageMeteo(tempsActuelle); 
     })
     .catch(function (erreur) {
       console.error(erreur);
@@ -60,7 +63,7 @@ function recevoirTemps(ville) {
     });
 }
 
-
+//fonction pour afficher les prochains jours. 
 function afficherProchainsJours() {
   const joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
   const dateActuelle = new Date();
@@ -74,14 +77,14 @@ function afficherProchainsJours() {
     spanJour.textContent = joursSemaine[prochainJour];
   }
 }
-
+//fonction pour afficher la température des prochains jours
 function afficherTemperatureProchainsJours(ville) {
   const joursSpans = document.querySelectorAll(".liste-jours div");
 
-  const apiKey = `a3a3a0a3b9787d551def0bf9e963422c`; // Remplacez par votre clé d'API OpenWeatherMap
+  const apiKey = `a3a3a0a3b9787d551def0bf9e963422c`; // 
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${ville}&appid=${apiKey}&units=metric`;
-
+//requete API
   axios
     .get(url)
     .then(function (response) {
@@ -102,14 +105,14 @@ function afficherTemperatureProchainsJours(ville) {
       alert("Une erreur est survenue, merci de réessayer plus tard");
     });
 }
-
+//fonction pour afficher la météo des prochains jours
 function afficherMeteoProchainsJours(ville) {
   const joursSpans = document.querySelectorAll(".liste-jours div");
 
   const apiKey = `a3a3a0a3b9787d551def0bf9e963422c`; // Remplacez par votre clé d'API OpenWeatherMap
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${ville}&appid=${apiKey}&units=metric`;
-
+//requete API
   axios
     .get(url)
     .then(function (response) {
@@ -130,15 +133,14 @@ function afficherMeteoProchainsJours(ville) {
     });
 }
 
-
+//objet litéraux contenant les chemins des images 
 let images = {
     Clear: "url('image/beau-temps.jpg')",
     Rain: "url('image/pluie.jpg')",
     Clouds: "url('image/cloud.jpg')",
 };
 
-// let tempsActuelle = "Clear";
-
+//fonction pour afficher les images selon la témpérature météo. 
 function afficherImageMeteo(tempsActuelle) {
     var body = document.querySelector("body");
 
@@ -164,7 +166,6 @@ function afficherImageMeteo(tempsActuelle) {
     }
 }
 
-// afficherImageMeteo(tempsActuelle);
 
 
 
