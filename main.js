@@ -130,34 +130,32 @@ function afficherMeteoProchainsJours(ville) {
 }
 
 
-// let tempsActuelle = "Clear";
 
-// function afficherImageMeteo(tempsActuelle) {
+function afficherImageMeteo(tempsActuelle) {
+    var body = document.querySelector("body");
 
+    switch (tempsActuelle) {
+        case "Clear":
+            body.style.backgroundImage = "url('image/beau-temps.jpg')";
+            body.classList.add("img");
+            break;
 
-//     switch (tempsActuelle) {
-//         case "Clear":
-//             document.body.style.backgroundImage = "url('image/beau-temps.jpg')";
-//             document.body.classList("img");
-//             break;
+        case "Rain":
+            body.style.backgroundImage = "url('image/pluie.jpg')";
+            body.classList.add("img");
+            break;
 
-//         case "Rain":
-//             document.body.style.backgroundImage = "url('image/pluie.jpg')";
-//             document.body.classList("img");
-//             break;
-
-//         case "Clouds":
-//             document.body.style.backgroundImage = "url('image/cloud.jpg')";
-//             document.body.classList("img");
-//             break;
+        case "Clouds":
+            body.style.backgroundImage = "url('image/cloud.jpg')";
+            body.classList.add("img");
+            break;
     
-//         default:
-//             document.body.classList("");
-//             break;
-//     }
+        default:
+            body.classList.remove("img");
+            break;
+    }
+}
 
-
-// }
 
 
 
@@ -168,4 +166,3 @@ function afficherMeteoProchainsJours(ville) {
 
 // };
 
-// ta grand mère la pute un peu la
