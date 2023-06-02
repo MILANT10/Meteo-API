@@ -130,12 +130,42 @@ function afficherMeteoProchainsJours(ville) {
 }
 
 
+// let tempsActuelle = "Clear";
 
-function afficherImageMeteo(tempsActuelle) {
-  if (tempsActuelle === "Clear") {
-    document.body.style.backgroundImage = "url('image/beau-temps.jpg')";
-    document.body.style.backgroundRepeat= no-repeat;
-    document.body.style.backgroundSize= cover;
-  }
-}
+// function afficherImageMeteo(tempsActuelle) {
 
+
+//     switch (tempsActuelle) {
+//         case "Clear":
+//             document.body.style.backgroundImage = "url('image/beau-temps.jpg')";
+//             document.body.classList("img");
+//             break;
+
+//         case "Rain":
+//             document.body.style.backgroundImage = "url('image/pluie.jpg')";
+//             document.body.classList("img");
+//             break;
+
+//         case "Clouds":
+//             document.body.style.backgroundImage = "url('image/cloud.jpg')";
+//             document.body.classList("img");
+//             break;
+    
+//         default:
+//             document.body.classList("");
+//             break;
+//     }
+
+
+// }
+
+
+
+// let images = {
+//   Clear : "url('image/beau-temps.jpg')",
+//   Rain : "('image\pluie.jpg')",
+
+
+// };
+
+// ta grand mère la pute un peu la
