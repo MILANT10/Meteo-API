@@ -208,4 +208,4 @@ function afficherSvgMeteo(tempsActuelle) {
 }
 
 // afficherSvgMeteo(tempsActuelle);
-// afficherImageMeteo(tempsActuelle);
+// afficherImageMeteo(tempsActuelle);   
