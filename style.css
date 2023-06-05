@@ -1,6 +1,21 @@
 :root{
-  --couleur_principale: hsl(0, 0%, 92%);
+  /* --couleur_principale: hsl(0, 0%, 92%);
+  --couleur_secondaire: hsl(0, 13%, 82%); */
   --font: 'PT Sans', sans-serif;
+
+  /* Palette de couleur a tester */
+  
+  --couleur_principale: #f1f1f1;
+  --couleur_secondaire: #d4d9dd;
+  --couleur_trois: #bbb6b6;
+  --couleur_quatre: #424246;
+  --couleur_cinq: #212121;
+  
+  
+  
+  
+  
+ 
 }
 
 
@@ -8,8 +23,7 @@
 
 body {
   background: #2980b9; 
-  background: -webkit-linear-gradient(to right, #ffffff, #6dd5fa, #2980b9);
-  background: linear-gradient(to right, #ffffff, #6dd5fa, #2980b9); 
+  background: linear-gradient(to right, var(--couleur_trois), var(--couleur_principale)); 
   min-width: 400px;
   font-family: var(--font);
   
@@ -17,8 +31,10 @@ body {
 
 h1{
   font-size: 3em;
-  text-shadow: 5px 3px 4px rgba(47,80,206,0.75);
+  text-shadow: 5px 3px 4px rgba(19, 23, 36, 0.75);
   color: var(--couleur_principale);
+  padding: 0%;
+  margin: 0%;
 }
 
 body {
@@ -35,24 +51,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px
 }
 
 .main-card {
-  background-color: purple;
-  width: 350px;
-  height: 40vh;
+  background-color: var(--couleur_quatre);
+  width: 400px;
+  height: 50vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 60px;
+  border-radius: 20px 0px 0px 20px;
+  color: var(--couleur_principale);
 }
 
 .second-card {
-  background-color: aqua;
-  width: 350px;
+  background-color: var(--couleur_cinq);
+  width: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-radius: 0px 20px 20px 0px;
+  color: var(--couleur_secondaire);
 }
 
 #ville {
@@ -104,15 +124,17 @@ body {
 #villeInput {
   cursor: pointer;
   font-size: 2em;
-  background-color: blue;
-  color: var(--couleur_principale);
+  background-color: var(--couleur_principale);
   padding: 10px 20px;
   border-radius: 30px;
-  box-shadow: 0px 0px 20px 1px rgba(116, 255, 235, 0.7);
+  box-shadow: 0px 0px 4px 1px var(--couleur_secondaire);
   border: none;
   text-align: center;
 }
 
+::placeholder{
+  color: var(--couleur_quatre);
+}
 
 #svg{
   display: flex;
