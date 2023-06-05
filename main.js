@@ -7,8 +7,21 @@ obtenirLocalisation(recevoirTemps);
 
 // Événement du bouton avec appel des fonctions
 villeInput.addEventListener("keypress", (event) => {
+  const inputValue = event.target.value;
+  const lettersOnly = /^[A-Za-z]+$/;
+
+  if (!inputValue.match(lettersOnly)) {
+    event.target.value = inputValue.replace(/[^A-Za-z]/g, " ");
+  }
   if (event.key === "Enter") {
     const ville = villeInput.value;
+
+    // Vérifier si la valeur de l'input est vide ou contient uniquement des espaces
+    if (ville.trim() === "") {
+      alert("Veuillez entrer une ville valide");
+      return; // Arrêter l'exécution du reste du code
+    }
+
     recevoirTemps(ville);
     afficherMeteoProchainsJours(ville);
     afficherTemperatureProchainsJours(ville);
@@ -148,6 +161,7 @@ let images = {
     Clear: "url('image/beau-temps.jpg')",
     Rain: "url('image/pluie.jpg')",
     Clouds: "url('image/cloud.jpg')",
+    Brouillard: "url('image/brouillard.jpg')",
 };
 
 let svg = {
@@ -176,6 +190,15 @@ function afficherImageMeteo(tempsActuelle) {
       body.style.backgroundImage = images.Clouds;
       body.classList.add("img");
       break;
+
+    case "Haze":
+      body.style.backgroundImage = images.Clouds;
+      body.classList.add("img");
+      break;
+
+    case "Mist":
+      body.style.backgroundImage = images.Brouillard;
+      body.classList.add("img");
 
     default:
       body.classList.remove("img");
@@ -209,3 +232,4 @@ function afficherSvgMeteo(tempsActuelle) {
 
 // afficherSvgMeteo(tempsActuelle);
 // afficherImageMeteo(tempsActuelle);   
+
