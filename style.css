@@ -20,7 +20,7 @@ body {
 }
 /* Titre principale */
 h1{
-  font-size: 3em;
+  font-size: 4em;
   text-shadow: 5px 3px 4px rgba(19, 23, 36, 0.75);
   color: var(--couleur_principale);
   padding: 0%;

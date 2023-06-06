@@ -32,7 +32,7 @@ villeInput.addEventListener("keypress", (event) => {
 
 //fonction pour obtenir la localisation de l'utilisateur
 function obtenirLocalisation(callback) {
-    //condition de la disponibilite de la géolocalisation
+  //condition de la disponibilite de la géolocalisation
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       function (position) {
@@ -69,10 +69,31 @@ function recevoirTemps(ville) {
     .get(url)
     .then(function (response) {
       const meteoActuelle = response.data.main.temp;
-      const tempsActuelle = response.data.weather[0].main;
-      document.querySelector("#temperature_label").textContent = meteoActuelle.toFixed(1);
+      let tempsActuelle = response.data.weather[0].main;
+      document.querySelector("#temperature_label").textContent =
+      meteoActuelle.toFixed(1);
       document.querySelector("#ville").textContent = ville;
+
+
+      switch (tempsActuelle) {
+        case "Clear":
+          tempsActuelle = document.querySelector("#temps_label").textContent ="Dégagé";
+          break;
+
+        case "Rain":
+          tempsActuelle = document.querySelector("#temps_label").textContent ="Pluie";
+
+          break;
+
+        case "Clouds":
+          tempsActuelle = document.querySelector("#temps_label").textContent ="Nuageux";          
+          break;
+
+        default:
+          break;
+      }
       document.querySelector("#temps_label").textContent = tempsActuelle;
+
 
       afficherTemperatureProchainsJours(ville, tempsActuelle);
       afficherMeteoProchainsJours(ville);
@@ -87,7 +108,15 @@ function recevoirTemps(ville) {
 
 //fonction pour afficher les prochains jours.
 function afficherProchainsJours() {
-  const joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+  const joursSemaine = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+  ];
   const dateActuelle = new Date();
   const jourActuel = dateActuelle.getDay();
 
@@ -107,7 +136,7 @@ function afficherTemperatureProchainsJours(ville) {
   const apiKey = `a3a3a0a3b9787d551def0bf9e963422c`; //
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${ville}&appid=${apiKey}&units=metric`;
-//requete API
+  //requete API
   axios
     .get(url)
     .then(function (response) {
@@ -136,17 +165,36 @@ function afficherMeteoProchainsJours(ville) {
   const apiKey = `a3a3a0a3b9787d551def0bf9e963422c`; // Remplacez par votre clé d'API OpenWeatherMap
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${ville}&appid=${apiKey}&units=metric`;
-//requete API
+  //requete API
   axios
     .get(url)
     .then(function (response) {
       const previsionList = response.data.list;
 
       for (let i = 1; i <= 4; i++) {
-        const prevision = previsionList[i * 8 - 1].weather[0].main; // Obtenir la météo pour le même jour à 12h (index * 8 - 1)
+        let prevision = previsionList[i * 8 - 1].weather[0].main; // Obtenir la météo pour le même jour à 12h (index * 8 - 1)
         const spanJour = joursSpans[i - 1].querySelector("span:last-child");
         const spanId = `futur_weather_${i}`;
 
+        switch (prevision) {
+          case "Clear":
+            spanJour.textContent = prevision;
+            prevision = "Dégagé";
+            break;
+
+          case "Rain":
+            spanJour.textContent = prevision;
+            prevision = "Pluie";
+            break;
+
+          case "Clouds":
+            spanJour.textContent = prevision;
+            prevision = "Nuageux";
+            break;
+
+          default:
+            break;
+        }
         spanJour.id = spanId;
         spanJour.textContent = prevision;
       }
@@ -157,40 +205,36 @@ function afficherMeteoProchainsJours(ville) {
     });
 }
 
-
-
-
 //objet litéraux contenant les chemins des images
 let images = {
-    Clear: "url('image/beau-temps.jpg')",
-    Rain: "url('image/pluie.jpg')",
-    Clouds: "url('image/cloud.jpg')",
-    Brouillard: "url('image/brouillard.jpg')",
+  Degage: "url('image/beau-temps.jpg')",
+  Rain: "url('image/pluie.jpg')",
+  Clouds: "url('image/cloud.jpg')",
+  Brouillard: "url('image/brouillard.jpg')",
 };
 
 let svg = {
-  Clear: "svg/sun.svg",
-  Rain : "svg/rain.svg",
+  Degage: "svg/sun.svg",
+  Rain: "svg/rain.svg",
   Clouds: "svg/cloud.svg",
-}
-
+};
 
 //fonction pour afficher les images selon la témpérature météo.
 function afficherImageMeteo(tempsActuelle) {
   var body = document.querySelector("body");
 
   switch (tempsActuelle) {
-    case "Clear":
-      body.style.backgroundImage = images.Clear;
+    case "Dégagé":
+      body.style.backgroundImage = images.Degage;
       body.classList.add("img");
       break;
 
-    case "Rain":
+    case "Pluie":
       body.style.backgroundImage = images.Rain;
       body.classList.add("img");
       break;
 
-    case "Clouds":
+    case "Nuageux":
       body.style.backgroundImage = images.Clouds;
       body.classList.add("img");
       break;
@@ -200,7 +244,7 @@ function afficherImageMeteo(tempsActuelle) {
       body.classList.add("img");
       break;
 
-    case "Mist":
+    case "Brumeux":
       body.style.backgroundImage = images.Brouillard;
       body.classList.add("img");
 
@@ -208,23 +252,22 @@ function afficherImageMeteo(tempsActuelle) {
       body.classList.remove("img");
       break;
   }
-};
+}
 
-
-// Fonction pour afficher les svg de la météo. 
+// Fonction pour afficher les svg de la météo.
 function afficherSvgMeteo(tempsActuelle) {
   var svgElement = document.querySelector("#svg");
 
   switch (tempsActuelle) {
-    case "Clear":
-      svgElement.innerHTML = `<img class="svg" src="${svg.Clear}" alt="Clear">`;
+    case "Dégagé":
+      svgElement.innerHTML = `<img class="svg" src="${svg.Degage}" alt="Dégagé">`;
       break;
 
-    case "Rain":
+    case "Pluie":
       svgElement.innerHTML = `<img class="svg" src="${svg.Rain}" alt="Rain">`;
       break;
 
-    case "Clouds":
+    case "Nuageux":
       svgElement.innerHTML = `<img class="svg" src="${svg.Clouds}" alt="Clouds">`;
       break;
 
