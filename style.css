@@ -171,44 +171,6 @@ h1{
  }
 }
 
-@media only screen and (max-width: 426px) {
-  #villeInput[type="text"] {
-    appearance: none; /* Supprimez l'apparence native de l'input */
-    -webkit-appearance: none; /* Pour les navigateurs basés sur WebKit */
-    -moz-appearance: none; /* Pour les navigateurs basés sur Gecko */
-  }
-
-  #villeInput[type="text"]::-webkit-input-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]::-moz-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]:-ms-input-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]::placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-}
-
-
-
 /* Version Mobile TEST 376px */
 @media only screen and (max-width: 376px) {
 
@@ -242,38 +204,3 @@ h1{
 
 }
 
-@media only screen and (max-width: 376px) {
-  #villeInput[type="text"] {
-    appearance: none; /* Supprimez l'apparence native de l'input */
-    -webkit-appearance: none; /* Pour les navigateurs basés sur WebKit */
-    -moz-appearance: none; /* Pour les navigateurs basés sur Gecko */
-  }
-
-  #villeInput[type="text"]::-webkit-input-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]::-moz-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]:-ms-input-placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-
-  #villeInput[type="text"]::placeholder {
-    /* Styles spécifiques pour le placeholder de l'input sur les appareils mobiles */
-    color: var(--couleur_quatre);
-    text-transform: initial;
-    font-size: 1.5em;
-  }
-}
