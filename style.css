@@ -169,6 +169,10 @@ h1{
  #villeInput{
    font-size: 1.3em;
  }
+
+ .liste-jours{
+  gap: 20px;
+ }
 }
 
 /* Version Mobile TEST 376px */
@@ -201,6 +205,7 @@ h1{
   .container{
     gap: 5px;
   }
+
 
 }
 

@@ -4,6 +4,7 @@ let villeInput = document.querySelector("#villeInput");
 // Appel des fonctions de base pour affichage au lancement de la page
 afficherProchainsJours();
 obtenirLocalisation(recevoirTemps);
+mobile();
 
 // Événement du bouton avec appel des fonctions
 villeInput.addEventListener("keypress", (event) => {
@@ -233,6 +234,10 @@ function afficherSvgMeteo(tempsActuelle) {
   }
 }
 
-
-
-
+function mobile() {
+  if (window.innerWidth <= 425) {
+    let villeInput = document.querySelector("#villeInput");
+    let card = document.querySelector(".main-card");
+    card.appendChild(villeInput);
+  }
+}
