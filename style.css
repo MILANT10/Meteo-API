@@ -1,34 +1,26 @@
+/* Variables couleur et font */
 :root{
-  /* --couleur_principale: hsl(0, 0%, 92%);
-  --couleur_secondaire: hsl(0, 13%, 82%); */
   --font: 'PT Sans', sans-serif;
-
-  /* Palette de couleur a tester */
-  
   --couleur_principale: #f1f1f1;
   --couleur_secondaire: #d4d9dd;
   --couleur_trois: #bbb6b6;
   --couleur_quatre: #424246;
   --couleur_cinq: #212121;
-  
-  
-  
-  
-  
- 
 }
 
-
-
-
+/* Body */
 body {
   background: #2980b9; 
   background: linear-gradient(to right, var(--couleur_trois), var(--couleur_principale)); 
   min-width: 400px;
   font-family: var(--font);
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
-
+/* Titre principale */
 h1{
   font-size: 3em;
   text-shadow: 5px 3px 4px rgba(19, 23, 36, 0.75);
@@ -36,16 +28,7 @@ h1{
   padding: 0%;
   margin: 0%;
 }
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-
-}
-
+/* Container principale */
 .container {
   text-align: center;
   display: flex;
@@ -53,7 +36,12 @@ body {
   align-items: center;
   gap: 40px
 }
+/* Container des cards */
+.card-container {
+  display: flex;
+}
 
+/* Card gauche */
 .main-card {
   background-color: var(--couleur_quatre);
   width: 400px;
@@ -64,7 +52,7 @@ body {
   border-radius: 20px 0px 0px 20px;
   color: var(--couleur_principale);
 }
-
+/* Card droite */
 .second-card {
   background-color: var(--couleur_cinq);
   width: 400px;
@@ -74,12 +62,12 @@ body {
   border-radius: 0px 20px 20px 0px;
   color: var(--couleur_secondaire);
 }
-
+/* Nom de la Ville actuelle */
 #ville {
   text-transform: capitalize;
   font-size: 4em;
 }
-
+/* Météo actuelle */
 .temps {
   font-size: 4em;
   display: flex;
@@ -87,25 +75,18 @@ body {
   align-items: center;
   gap: 20px;
 }
-
+/* Température actuelle */
 #temperature {
   font-size: 4em;
 }
 
-#changer {
-  background: rgba(178, 223, 251, 0.3);
-}
-
-.card-container {
-  display: flex;
-}
-
+/* Listes des jours prévisionnelles */
 .liste-jours {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
-
+/* Style des div des jours prévisionelles */
 .liste-jours > div {
   display: flex;
   justify-content: space-around;
@@ -116,11 +97,11 @@ body {
   height: 150px;
   border: 1px solid red;
 }
-
+/* Span des jours prévisionelles */
 .liste-jours > div > * span {
   font-size: 18px;
 }
-
+/* Input de changement de ville */
 #villeInput {
   cursor: pointer;
   font-size: 2em;
@@ -131,11 +112,11 @@ body {
   border: none;
   text-align: center;
 }
-
+/* Placeholder de l'input */
 ::placeholder{
   color: var(--couleur_quatre);
 }
-
+/* Style des SVG */
 #svg{
   display: flex;
   justify-content: center;
