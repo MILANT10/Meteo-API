@@ -44,24 +44,31 @@ h1{
 /* Card gauche */
 .main-card {
   background-color: var(--couleur_quatre);
-  width: 400px;
+  width: 360px;
   height: 50vh;
   display: flex;
   flex-direction: column;
   gap: 60px;
   border-radius: 20px 0px 0px 20px;
   color: var(--couleur_principale);
+  padding: 20px;
 }
 /* Card droite */
 .second-card {
   background-color: var(--couleur_cinq);
-  width: 400px;
+  width: 360px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   border-radius: 0px 20px 20px 0px;
   color: var(--couleur_secondaire);
+  padding: 20px;
 }
+#prev{
+  text-transform: capitalize;
+  font-size: 4em;
+}
+
 /* Nom de la Ville actuelle */
 #ville {
   text-transform: capitalize;
@@ -84,22 +91,23 @@ h1{
 .liste-jours {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 50px;
 }
 /* Style des div des jours prévisionelles */
 .liste-jours > div {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  width: 75px;
-  height: 150px;
-  border: 1px solid red;
+  height: 50px;
+  background-color: var(--couleur_secondaire);
+  color: var(--couleur_cinq);
+  border-radius: 10px;
 }
 /* Span des jours prévisionelles */
-.liste-jours > div > * span {
+.liste-jours > div >  span {
   font-size: 18px;
+  width: 50px;
 }
 /* Input de changement de ville */
 #villeInput {
