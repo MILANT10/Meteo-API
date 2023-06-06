@@ -149,17 +149,21 @@ h1{
 
  .main-card, .second-card{
    width: 90%;
-   height: 65%;
-   padding: 15px;
    
  }
 
  .main-card{
    border-radius: 10px 10px 0px 0px;
+   height: 50%;
+   gap: 40px;
  }
 
  .second-card{
    border-radius: 0px 0px 10px 10px;
+   height: 40%;
+   font-size: 0.8em;
+   gap: 10px;
+   padding-top: 10px;
  }
 
  .container{
