@@ -241,3 +241,7 @@ function mobile() {
     card.appendChild(villeInput);
   }
 }
+
+//Ceci est un test oour savoir si cela marche !!!!!! 
+
+console.log("salut ba'de de salope");
