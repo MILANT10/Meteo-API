@@ -10,9 +10,7 @@
 
 /* Body */
 body {
-  background: #2980b9; 
   background: linear-gradient(to right, var(--couleur_trois), var(--couleur_principale)); 
-  min-width: 400px;
   font-family: var(--font);
   display: flex;
   justify-content: center;
@@ -132,4 +130,37 @@ h1{
 }
 .svg{
   width: 100%;
+}
+
+
+/* Version Mobile TEST */
+@media only screen and (max-width: 376px) {
+  .card-container{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .main-card, .second-card{
+    width: 90%;
+    height: 65%;
+    padding: 15px;
+    
+  }
+
+  .main-card{
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .second-card{
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .container{
+    gap: 5px;
+  }
+
+  #villeInput{
+    font-size: 1.2em;
+  }
 }
