@@ -1,16 +1,21 @@
 /* Variables couleur et font */
-:root{
-  --font: 'PT Sans', sans-serif;
+:root {
+  --font: "PT Sans", sans-serif;
   --couleur_principale: #f1f1f1;
   --couleur_secondaire: #d4d9dd;
   --couleur_trois: #bbb6b6;
   --couleur_quatre: #424246;
   --couleur_cinq: #212121;
+  --font-size: 4em;
 }
 
 /* Body */
 body {
-  background: linear-gradient(to right, var(--couleur_trois), var(--couleur_principale)); 
+  background: linear-gradient(
+    to right,
+    var(--couleur_trois),
+    var(--couleur_principale)
+  );
   font-family: var(--font);
   display: flex;
   justify-content: center;
@@ -19,8 +24,8 @@ body {
   margin: 0;
 }
 /* Titre principale */
-h1{
-  font-size: 4em;
+h1 {
+  font-size: var(--font-size);
   text-shadow: 5px 3px 4px rgba(19, 23, 36, 0.75);
   color: var(--couleur_principale);
   padding: 0%;
@@ -32,16 +37,21 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px
+  gap: 40px;
 }
 /* Container des cards */
 .card-container {
   display: flex;
-  background: linear-gradient(to left, var(--couleur_quatre), var(--couleur_cinq));
+  background: linear-gradient(
+    to left,
+    var(--couleur_quatre),
+    var(--couleur_cinq)
+  );
   border-radius: 20px;
 }
 /* Les cards */
-.main-card, .second-card{
+.main-card,
+.second-card {
   width: 360px;
   display: flex;
   flex-direction: column;
@@ -60,17 +70,16 @@ h1{
   color: var(--couleur_secondaire);
 }
 
-
-
 /* Nom de la Ville actuelle et prévision */
-#prev, #ville{
+#prev,
+#ville {
   text-transform: capitalize;
-  font-size: 4em;
+  font-size: var(--font-size);
 }
 
 /* Météo actuelle */
 .temps {
-  font-size: 4em;
+  font-size: var(--font-size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +87,7 @@ h1{
 }
 /* Température actuelle */
 #temperature {
-  font-size: 4em;
+  font-size: var(--font-size);
 }
 
 /* Listes des jours prévisionnelles */
@@ -99,7 +108,7 @@ h1{
   border-radius: 10px;
 }
 /* Span des jours prévisionelles */
-.liste-jours > div >  span {
+.liste-jours > div > span {
   font-size: 18px;
   width: 50px;
 }
@@ -115,97 +124,95 @@ h1{
   text-align: center;
 }
 /* Placeholder de l'input */
-::placeholder{
+::placeholder {
   color: var(--couleur_quatre);
 }
 /* Style des SVG */
-#svg{
+#svg {
   display: flex;
   justify-content: center;
   width: 80px;
 }
-.svg{
+.svg {
   width: 100%;
 }
 
-
-
 /* Version Mobile TEST 426px */
-@media only screen and (max-width: 426px){
-  .container{
+@media only screen and (max-width: 426px) {
+  .container {
     height: 100%;
   }
 
-
-  .card-container{
+  .card-container {
     display: flex;
-   flex-direction: column;
-   justify-content: center;
- }
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+      to top,
+      var(--couleur_quatre),
+      var(--couleur_cinq)
+    );
+  }
 
- .main-card, .second-card{
-   width: 90%;
-   
- }
+  .main-card,
+  .second-card {
+    width: 90%;
+  }
 
- .main-card{
-   border-radius: 10px 10px 0px 0px;
-   height: 50%;
-   gap: 40px;
- }
+  .main-card {
+    border-radius: 10px 10px 0px 0px;
+    height: 50%;
+    gap: 40px;
+  }
 
- .second-card{
-   border-radius: 0px 0px 10px 10px;
-   height: 40%;
-   font-size: 0.8em;
-   gap: 10px;
-   padding-top: 10px;
- }
+  .second-card {
+    border-radius: 0px 0px 10px 10px;
+    height: 40%;
+    font-size: 0.8em;
+    gap: 10px;
+    padding-top: 10px;
+  }
 
- .container{
-   gap: 10px;
- }
+  .container {
+    gap: 10px;
+  }
 
- #villeInput{
-   font-size: 1.3em;
- }
+  #villeInput {
+    font-size: 1.3em;
+  }
 
- .liste-jours{
-  gap: 20px;
- }
+  .liste-jours {
+    gap: 20px;
+  }
 }
 
 /* Version Mobile TEST 376px */
 @media only screen and (max-width: 376px) {
-
-  .container{
+  .container {
     height: 100%;
   }
-  .card-container{
-     display: flex;
+  .card-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  .main-card, .second-card{
+  .main-card,
+  .second-card {
     width: 90%;
     height: 65%;
     padding: 15px;
-    
   }
 
-  .main-card{
+  .main-card {
     border-radius: 10px 10px 0px 0px;
   }
 
-  .second-card{
+  .second-card {
     border-radius: 0px 0px 10px 10px;
   }
 
-  .container{
+  .container {
     gap: 5px;
   }
-
-
 }
-
